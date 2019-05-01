@@ -1,4 +1,9 @@
 # vue-ahk
+> Online Drag-and-Drop editor for AutoHotkey scripts
+
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=zvecr/vue-ahk)](https://dependabot.com)
+
+Drag-and-Drop Blockly based editor for creating simple AutoHotkey scripts.
 
 ## Project setup
 ```
