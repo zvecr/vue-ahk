@@ -9,7 +9,7 @@
     "lint:md": "remark ."
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "core-js": "^3.0.1",
     "vue": "^2.6.10",
     "vuetify": "^1.5.5",
     "node-blockly": "1.0.36"
