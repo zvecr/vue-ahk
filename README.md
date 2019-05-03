@@ -6,7 +6,10 @@
 
 Drag-and-Drop Blockly based editor for creating simple AutoHotkey scripts.
 
-## Project setup
+## Development
+For convenience a `.nvmrc` file has been provided at the root of the project directory.
+
+### Project setup
 ```
 npm install
 ```
