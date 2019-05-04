@@ -5,10 +5,10 @@ const toolbox = `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="d
       <field name="KEY">A</field>
     </block>
     <block type="ahk_detect_mod">
-      <field name="MOD">WIN</field>
+      <field name="MOD">Ctrl</field>
     </block>
     <block type="ahk_detect_key">
-      <field name="KEY">ESC</field>
+      <field name="KEY">Esc</field>
     </block>
   </category>
   <category name="Action" colour="#e67e22" categorystyle="ahk_action_category">
@@ -26,10 +26,10 @@ const toolbox = `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="d
       <field name="keycode">A</field>
     </block>
     <block type="ahk_send_key">
-      <field name="KEY">ESC</field>
+      <field name="KEY">Esc</field>
     </block>
     <block type="ahk_send_modifier">
-      <field name="MOD">CTRL</field>
+      <field name="MOD">Ctrl</field>
     </block>
   </category>
   <sep></sep>
@@ -37,7 +37,7 @@ const toolbox = `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="d
     <block type="ahk_hotkey">
       <value name="CONDITION">
         <block type="ahk_detect_mod">
-          <field name="MOD">CTRL</field>
+          <field name="MOD">Ctrl</field>
           <value name="NAME">
             <block type="ahk_detect_keypress">
               <field name="KEY">J</field>
@@ -71,12 +71,12 @@ const toolbox = `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="d
     <block type="ahk_hotkey">
       <value name="CONDITION">
         <block type="ahk_detect_key">
-          <field name="KEY">ESC</field>
+          <field name="KEY">F24</field>
         </block>
       </value>
       <statement name="OUTPUT">
         <block type="ahk_msgbox">
-          <field name="MSG">Going to type 'Hello World'</field>
+          <field name="MSG">About to type 'Hello World'</field>
           <next>
             <block type="ahk_send">
               <value name="NAME">
