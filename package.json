@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "core-js": "^3.0.1",
+    "file-saver": "^2.0.1",
+    "node-blockly": "1.0.36",
     "vue": "^2.6.10",
-    "vuetify": "^1.5.14",
-    "node-blockly": "1.0.36"
+    "vuetify": "^1.5.14"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",

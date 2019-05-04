@@ -11,7 +11,7 @@
         <v-icon @click="$emit('download')">fa-download</v-icon>
       </v-btn>
     </v-toolbar>
-    <app-menu v-model="drawer"></app-menu>
+    <app-menu @download="$emit('download')" @import="$emit('import')" @export="$emit('export')" v-model="drawer"></app-menu>
   </div>
 </template>
 

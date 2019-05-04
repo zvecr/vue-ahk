@@ -1,15 +1,6 @@
 <template>
-  <div style="  position: relative;
-  width: 100%;
-  height: 100%;">
-    <div
-      class="blocklyDiv"
-      style="  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;"
-    ></div>
+  <div class="blocklyDivParent">
+    <div class="blocklyDiv"></div>
   </div>
 </template>
 
@@ -22,8 +13,7 @@ import toolbox from "./AHK/toolbox";
 
 export default {
   props: {
-    value: { type: String },
-    type: { type: String, default: "AHK" }
+    value: { type: String }
   },
   data() {
     return {
@@ -39,21 +29,18 @@ export default {
       sounds: false,
       horizontalLayout: false,
       toolboxPosition: "start",
-      media : './', 
+      media: "./",
       grid: { spacing: 20, length: 3, colour: "#ff000000", snap: true },
       trashcan: false
     });
 
-    if (this.value) this.doImport(this.value);
+    this.doImport(this.value);
 
     this.workspace.addChangeListener(event => {
-      var xml_text = this.doExport();
-
-      if (event.type == Blockly.Events.UI) {
+      if (event.type === Blockly.Events.UI) {
         return;
       }
-      console.log(xml_text);
-      this.$emit("input", xml_text);
+      this.$emit("input", this.doExport());
     });
 
     window.addEventListener(
@@ -66,22 +53,39 @@ export default {
   },
   methods: {
     doExport() {
-      var xml = Blockly.Xml.workspaceToDom(this.workspace);
+      const xml = Blockly.Xml.workspaceToDom(this.workspace);
       return Blockly.Xml.domToText(xml);
     },
     doImport(xml_text) {
-      var xml = Blockly.Xml.textToDom(xml_text);
-      Blockly.Xml.domToWorkspace(xml, this.workspace);
+      Blockly.mainWorkspace.clear();
+      if (xml_text) {
+        const xml = Blockly.Xml.textToDom(xml_text);
+        Blockly.Xml.domToWorkspace(xml, this.workspace);
+      }
     },
     doGen() {
-      var data = Blockly[this.type].workspaceToCode(this.workspace);
-      console.log(data);
+      return generator.workspaceToCode(this.workspace);
     }
   }
 };
 </script>
 
 <style>
+.blocklyDivParent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.blocklyDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* TODO: tidy up this style investigation */
 .blocklySvg {
 }
 

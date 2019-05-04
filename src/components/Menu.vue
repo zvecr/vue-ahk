@@ -8,7 +8,7 @@
     @input="$emit('input', $event)"
   >
     <v-list>
-      <v-list-tile @click>
+      <v-list-tile @click="$emit('import')">
         <v-list-tile-action>
           <v-icon>fa-file-import</v-icon>
         </v-list-tile-action>
@@ -18,7 +18,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile @click>
+      <v-list-tile @click="$emit('export')">
         <v-list-tile-action>
           <v-icon>fa-file-export</v-icon>
         </v-list-tile-action>
@@ -30,7 +30,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile @click>
+      <v-list-tile @click="$emit('download')">
         <v-list-tile-action>
           <v-icon>fa-download</v-icon>
         </v-list-tile-action>
@@ -40,7 +40,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile disabled @click>
+      <v-list-tile disabled @click="$emit('compile')">
         <v-list-tile-action>
           <v-icon>fa-cogs</v-icon>
         </v-list-tile-action>
@@ -52,7 +52,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile @click>
+      <v-list-tile @click="help">
         <v-list-tile-action>
           <v-icon>fa-question</v-icon>
         </v-list-tile-action>
@@ -87,21 +87,15 @@ export default {
   methods: {
     home() {
       window.location.href = "http://www.zvecr.com";
+    },
+    help(){
+      window.location.href = "https://github.com/zvecr/vue-ahk/wiki";
     }
   }
 };
 </script>
 
 <style>
-asdf {
-  color: #1976d2;
-  secondary: #2c3539;
-  accent: #82b1ff;
-  error: #ff5252;
-  info: #2196f3;
-  success: #4caf50;
-  warning: #ffc107;
-}
 /* bodge to work around blockly */
 .theme--dark.v-navigation-drawer,
 .theme--light.v-navigation-drawer {
