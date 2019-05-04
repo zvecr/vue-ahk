@@ -5,7 +5,6 @@ branches:
     - gh-pages 
 
 script:
-  - npm run lint || true
   - npm run build
 
 deploy:
