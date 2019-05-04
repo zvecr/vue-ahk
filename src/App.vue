@@ -1,26 +1,26 @@
 <template>
   <v-app>
-    <app-header @download="genAHK" @import="doImport" @export="doExport"></app-header>
+    <app-header @download="genAHK" @import="doImport" @export="doExport"/>
 
     <v-content>
-      <app-blockly v-model="editorState" ref="editor"/>
+      <app-editor v-model="editorState" ref="editor"/>
     </v-content>
 
-    <app-footer></app-footer>
+    <app-footer/>>
   </v-app>
 </template>
 
 <script>
 import { saveAs } from "file-saver";
 
-import AppBlockly from "./components/Blockly";
+import AppEditor from "./components/AHK/Editor";
 import AppHeader from "./components/Header";
 import AppFooter from "./components/Footer";
 
 export default {
   name: "App",
   components: {
-    AppBlockly,
+    AppEditor,
     AppHeader,
     AppFooter
   },
@@ -41,7 +41,7 @@ export default {
 
         const fr = new FileReader();
         fr.onload = () => {
-          var xmlish = new DOMParser().parseFromString(fr.result, "text/xml");
+          const xmlish = new DOMParser().parseFromString(fr.result, "text/xml");
           if (xmlish.querySelector("parsererror")) {
             return;
           }

@@ -6,10 +6,10 @@
 
 <script>
 import Blockly from "node-blockly/browser";
-import generator from "./AHK/generator";
-import blocks from "./AHK/blocks";
-import theme from "./AHK/theme";
-import toolbox from "./AHK/toolbox";
+import generator from "./generator";
+import blocks from "./blocks";
+import theme from "./theme";
+import toolbox from "./toolbox";
 
 export default {
   props: {
@@ -45,9 +45,7 @@ export default {
 
     window.addEventListener(
       "resize",
-      event => {
-        Blockly.svgResize(this.workspace);
-      },
+      () => Blockly.svgResize(this.workspace),
       false
     );
   },
