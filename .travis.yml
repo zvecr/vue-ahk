@@ -1,0 +1,19 @@
+language: node_js
+
+branches:
+  except:
+    - gh-pages 
+
+script:
+  - npm run lint || true
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  fqdn: ahk.zvecr.com
+  keep_history: true
+  local_dir: dist
+  on:
+    branch: master
