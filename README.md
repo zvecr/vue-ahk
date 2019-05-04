@@ -7,6 +7,8 @@
 
 Drag-and-Drop Blockly based editor for creating simple AutoHotkey scripts.
 
+![screenshot](./docs/screenshot.png)
+
 ## Development
 For convenience a `.nvmrc` file has been provided at the root of the project directory.
 
