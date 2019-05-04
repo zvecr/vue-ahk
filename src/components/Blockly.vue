@@ -15,135 +15,10 @@
 
 <script>
 import Blockly from "node-blockly/browser";
-import AHK from "./AHK";
-import AHKb from "./AHK_blocks";
-
-const config = {
-  blockStyles: {
-    logic_blocks: {
-      colourPrimary: "#3498db",
-      colourTertiary: "#2980b9"
-    },
-    loop_blocks: {
-      colourPrimary: "#3498db",
-      colourTertiary: "#2980b9"
-    },
-    math_blocks: {
-      colourPrimary: "#e67e22",
-      colourTertiary: "#d35400"
-    },
-    text_blocks: {
-      colourPrimary: "#e67e22",
-      colourTertiary: "#d35400"
-    }
-  },
-  categoryStyles: {
-    logic_category: {
-      colour: "#3498db"
-    },
-    action_category: {
-      colour: "#e67e22"
-    }
-  },
-  toolbox: `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
-  <category name="Rules" colour="#a56d5b">
-    <block type="ahk_hotkey"></block>
-    <block type="ahk_detect_keypress">
-      <field name="KEY">A</field>
-    </block>
-    <block type="ahk_detect_mod">
-      <field name="MOD">WIN</field>
-    </block>
-    <block type="ahk_detect_key">
-      <field name="KEY">ESC</field>
-    </block>
-  </category>
-  <category name="Action" colour="#a5a55b">
-    <block type="ahk_print">
-      <field name="MSG">Hello World</field>
-    </block>
-    <block type="ahk_run">
-      <field name="EXE">notepad.exe</field>
-    </block>
-    <block type="ahk_msgbox">
-      <field name="MSG">Hello World</field>
-    </block>
-    <block type="ahk_send"></block>
-    <block type="ahk_send_keypress">
-      <field name="keycode">A</field>
-    </block>
-    <block type="ahk_send_key">
-      <field name="KEY">ESC</field>
-    </block>
-    <block type="ahk_send_modifier">
-      <field name="MOD">CTRL</field>
-    </block>
-  </category>
-  <sep></sep>
-  <category name="Templates">
-    <block type="ahk_hotkey">
-      <value name="CONDITION">
-        <block type="ahk_detect_mod">
-          <field name="MOD">CTRL</field>
-          <value name="NAME">
-            <block type="ahk_detect_keypress">
-              <field name="KEY">J</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <statement name="OUTPUT">
-        <block type="ahk_print">
-          <field name="MSG">Hello World</field>
-        </block>
-      </statement>
-    </block>
-    <block type="ahk_hotkey">
-      <value name="CONDITION">
-        <block type="ahk_detect_mod">
-          <field name="MOD">SHIFT</field>
-          <value name="NAME">
-            <block type="ahk_detect_keypress">
-              <field name="KEY">J</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <statement name="OUTPUT">
-        <block type="ahk_run">
-          <field name="EXE">notepad.exe</field>
-        </block>
-      </statement>
-    </block>
-    <block type="ahk_hotkey">
-      <value name="CONDITION">
-        <block type="ahk_detect_key">
-          <field name="KEY">ESC</field>
-        </block>
-      </value>
-      <statement name="OUTPUT">
-        <block type="ahk_msgbox">
-          <field name="MSG">Going to type 'Hello World'</field>
-          <next>
-            <block type="ahk_send">
-              <value name="NAME">
-                <block type="ahk_send_keypress">
-                  <field name="keycode">A</field>
-                  <value name="NAME">
-                    <block type="ahk_send_key">
-                      <field name="KEY">ENTER</field>
-                    </block>
-                  </value>
-                </block>
-              </value>
-            </block>
-          </next>
-        </block>
-      </statement>
-    </block>
-  </category>
-</xml>`
-};
+import generator from "./AHK/generator";
+import blocks from "./AHK/blocks";
+import theme from "./AHK/theme";
+import toolbox from "./AHK/toolbox";
 
 export default {
   props: {
@@ -155,13 +30,11 @@ export default {
       worksapce: null
     };
   },
-  mounted(el) {
-    let temp = this.$el.querySelector(".blocklyDiv");
+  mounted() {
+    let child = this.$el.querySelector(".blocklyDiv");
 
-    var theme = new Blockly.Theme(config.blockStyles, config.categoryStyles);
-
-    this.workspace = Blockly.inject(temp, {
-      toolbox: config.toolbox,
+    this.workspace = Blockly.inject(child, {
+      toolbox: toolbox,
       theme: theme,
       sounds: false,
       horizontalLayout: false,
@@ -254,4 +127,3 @@ export default {
   stroke-width: 2px;
 }
 </style>
-

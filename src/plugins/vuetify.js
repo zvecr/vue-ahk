@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 Vue.use(Vuetify, {
   iconfont: 'fa',
   theme: {
-    primary: '#007F7F',
-    secondary: '#2C3539'
+    primary: '#2C3539',
+    secondary: '#007F7F'
   }
 })

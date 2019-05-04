@@ -1,7 +1,12 @@
 <template>
-  <v-navigation-drawer style="display:flex;flex-direction:column;" app
-  :value="value"
-  @input="$emit('input', $event)">
+  <v-navigation-drawer
+    style="display:flex;flex-direction:column;"
+    app
+    absolute
+    temporary
+    :value="value"
+    @input="$emit('input', $event)"
+  >
     <v-list>
       <v-list-tile @click>
         <v-list-tile-action>
@@ -35,7 +40,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile disabled="" @click="">
+      <v-list-tile disabled @click>
         <v-list-tile-action>
           <v-icon>fa-cogs</v-icon>
         </v-list-tile-action>
@@ -57,18 +62,10 @@
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
+
     <v-spacer></v-spacer>
 
-    <!-- <v-card flat class="justify-center pa-3">
-        <v-img contain src="icon_vector_min.svg"></v-img>
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">Zvecr</h3>
-            <div> {{ card_text }} </div>
-          </div>
-        </v-card-title>
-    </v-card>-->
-<v-divider></v-divider>
+    <v-divider></v-divider>
     <v-list two-line>
       <v-list-tile @click="home">
         <v-list-tile-avatar tile>
@@ -87,23 +84,23 @@
 <script>
 export default {
   props: ["value"],
-  methods:{
-      home(){
-          window.location.href = 'http://www.zvecr.com';
-      }
+  methods: {
+    home() {
+      window.location.href = "http://www.zvecr.com";
+    }
   }
 };
 </script>
 
 <style>
-asdf{
-  color: #1976D2;
-  secondary: #2C3539;
-  accent: #82B1FF;
-  error: #FF5252;
-  info: #2196F3;
-  success: #4CAF50;
-  warning: #FFC107;
+asdf {
+  color: #1976d2;
+  secondary: #2c3539;
+  accent: #82b1ff;
+  error: #ff5252;
+  info: #2196f3;
+  success: #4caf50;
+  warning: #ffc107;
 }
 /* bodge to work around blockly */
 .theme--dark.v-navigation-drawer,
