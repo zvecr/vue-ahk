@@ -54,11 +54,11 @@
 
       <v-list-tile @click="help">
         <v-list-tile-action>
-          <v-icon>fa-question</v-icon>
+          <v-icon>fa-question-circle</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content>
-          <v-list-tile-title>Help</v-list-tile-title>
+          <v-list-tile-title>Online Help</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
