@@ -136,7 +136,7 @@ const SEND_MODS = [
 
 Blockly.defineBlocksWithJsonArray([{
   "type": "ahk_msgbox",
-  "message0": "Message Box with %1",
+  "message0": "Message Box With %1",
   "args0": [
     {
       "type": "field_input",
@@ -214,17 +214,17 @@ Blockly.defineBlocksWithJsonArray([{
   "previousStatement": "action",
   "nextStatement": "action",
   "style": "action_type",
-  "tooltip": "",
+  "tooltip": "A Send action with fine grain control. See https://autohotkey.com/docs/commands/Send.htm",
   "helpUrl": ""
 },
 {
   "type": "ahk_send_keypress",
-  "message0": "%1 %2",
+  "message0": "Raw Sequence %1 %2",
   "args0": [
     {
       "type": "field_input",
       "name": "keycode",
-      "text": "A"
+      "text": "abc"
     },
     {
       "type": "input_value",
@@ -234,12 +234,12 @@ Blockly.defineBlocksWithJsonArray([{
   ],
   "output": "action",
   "style": "action_type",
-  "tooltip": "",
+  "tooltip": "Raw sequence which requires escaping. See https://autohotkey.com/docs/commands/Send.htm",
   "helpUrl": ""
 },
 {
   "type": "ahk_send_modifier",
-  "message0": "%1 %2",
+  "message0": "Modifier %1 and %2",
   "args0": [
     {
       "type": "field_dropdown",
@@ -260,7 +260,7 @@ Blockly.defineBlocksWithJsonArray([{
 },
 {
   "type": "ahk_send_key",
-  "message0": "%1 %2",
+  "message0": "Key %1 %2",
   "args0": [
     {
       "type": "field_dropdown",
@@ -281,7 +281,7 @@ Blockly.defineBlocksWithJsonArray([{
 },
 {
   "type": "ahk_detect_mod",
-  "message0": "%1 %2",
+  "message0": "Modifier %1 and %2",
   "args0": [
     {
       "type": "field_dropdown",
@@ -302,7 +302,7 @@ Blockly.defineBlocksWithJsonArray([{
 },
 {
   "type": "ahk_detect_key",
-  "message0": "%1",
+  "message0": "Key %1",
   "args0": [
     {
       "type": "field_dropdown",
@@ -318,12 +318,12 @@ Blockly.defineBlocksWithJsonArray([{
 },
 {
   "type": "ahk_detect_keypress",
-  "message0": "%1",
+  "message0": "key %1",
   "args0": [
     {
       "type": "field_input",
       "name": "KEY",
-      "text": "A"
+      "text": "a"
     }
   ],
   "output": "detect",
