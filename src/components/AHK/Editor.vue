@@ -5,48 +5,50 @@
 </template>
 
 <script>
-import Blockly from "node-blockly/browser";
-import generator from "./generator";
-import blocks from "./blocks";
-import theme from "./theme";
-import toolbox from "./toolbox";
+import Blockly from 'node-blockly/browser';
+import generator from './generator';
+import blocks from './blocks';
+import theme from './theme';
+import toolbox from './toolbox';
 
 export default {
   props: {
-    value: { type: String }
+    value: { type: String },
   },
   data() {
     return {
-      worksapce: null
+      worksapce: null,
     };
   },
   mounted() {
-    let child = this.$el.querySelector(".blocklyDiv");
+    const child = this.$el.querySelector('.blocklyDiv');
 
     this.workspace = Blockly.inject(child, {
-      toolbox: toolbox,
-      theme: theme,
+      toolbox,
+      theme,
       sounds: false,
       horizontalLayout: false,
-      toolboxPosition: "start",
-      media: "./",
-      grid: { spacing: 20, length: 3, colour: "#ff000000", snap: true },
-      trashcan: false
+      toolboxPosition: 'start',
+      media: './',
+      grid: {
+        spacing: 20, length: 3, colour: '#ff000000', snap: true,
+      },
+      trashcan: false,
     });
 
     this.doImport(this.value);
 
-    this.workspace.addChangeListener(event => {
+    this.workspace.addChangeListener((event) => {
       if (event.type === Blockly.Events.UI) {
         return;
       }
-      this.$emit("input", this.doExport());
+      this.$emit('input', this.doExport());
     });
 
     window.addEventListener(
-      "resize",
+      'resize',
       () => Blockly.svgResize(this.workspace),
-      false
+      false,
     );
   },
   methods: {
@@ -63,8 +65,8 @@ export default {
     },
     doGen() {
       return generator.workspaceToCode(this.workspace);
-    }
-  }
+    },
+  },
 };
 </script>
 

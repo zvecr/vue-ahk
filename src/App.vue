@@ -6,43 +6,43 @@
       <app-editor v-model="editorState" ref="editor"/>
     </v-content>
 
-    <app-footer/>>
+    <app-footer/>
   </v-app>
 </template>
 
 <script>
-import { saveAs } from "file-saver";
+import { saveAs } from 'file-saver';
 
-import AppEditor from "./components/AHK/Editor";
-import AppHeader from "./components/Header";
-import AppFooter from "./components/Footer";
+import AppEditor from './components/AHK/Editor';
+import AppHeader from './components/Header';
+import AppFooter from './components/Footer';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     AppEditor,
     AppHeader,
-    AppFooter
+    AppFooter,
   },
   data() {
     return {
-      editorState: ""
+      editorState: '',
     };
   },
   methods: {
     doImport() {
       // TODO: find npm FileReader.readAsText lib like file-saver
       const vm = this;
-      const i = document.createElement("input");
-      i.type = "file";
-      i.onchange = function(e) {
+      const i = document.createElement('input');
+      i.type = 'file';
+      i.onchange = function (e) {
         const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
         const file = files[0];
 
         const fr = new FileReader();
         fr.onload = () => {
-          const xmlish = new DOMParser().parseFromString(fr.result, "text/xml");
-          if (xmlish.querySelector("parsererror")) {
+          const xmlish = new DOMParser().parseFromString(fr.result, 'text/xml');
+          if (xmlish.querySelector('parsererror')) {
             return;
           }
 
@@ -57,16 +57,16 @@ export default {
     },
     doExport() {
       const blob = new Blob([this.editorState], {
-        type: "text/plain;charset=utf-8"
+        type: 'text/plain;charset=utf-8',
       });
-      saveAs(blob, "script.xml");
+      saveAs(blob, 'script.xml');
     },
     genAHK() {
       const blob = new Blob([this.$refs.editor.doGen()], {
-        type: "text/plain;charset=utf-8"
+        type: 'text/plain;charset=utf-8',
       });
-      saveAs(blob, "script.ahk");
-    }
-  }
+      saveAs(blob, 'script.ahk');
+    },
+  },
 };
 </script>

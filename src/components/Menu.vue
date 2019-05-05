@@ -83,15 +83,15 @@
 
 <script>
 export default {
-  props: ["value"],
+  props: ['value'],
   methods: {
     home() {
-      window.location.href = "http://www.zvecr.com";
+      window.location.href = 'http://www.zvecr.com';
     },
-    help(){
-      window.location.href = "https://github.com/zvecr/vue-ahk/wiki";
-    }
-  }
+    help() {
+      window.location.href = 'https://github.com/zvecr/vue-ahk/wiki';
+    },
+  },
 };
 </script>
 

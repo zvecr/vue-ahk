@@ -16,16 +16,17 @@
 </template>
 
 <script>
-import AppMenu from "./Menu";
+import AppMenu from './Menu';
+
 export default {
   data() {
     return {
-      drawer: false
+      drawer: false,
     };
   },
   components: {
-    AppMenu
-  }
+    AppMenu,
+  },
 };
 </script>
 
