@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Blockly from 'node-blockly/browser';
 
 Blockly.AHK = new Blockly.Generator('AHK');

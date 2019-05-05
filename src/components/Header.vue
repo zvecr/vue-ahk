@@ -11,12 +11,17 @@
         <v-icon @click="$emit('download')">fa-download</v-icon>
       </v-btn>
     </v-toolbar>
-    <app-menu @download="$emit('download')" @import="$emit('import')" @export="$emit('export')" v-model="drawer"></app-menu>
+    <app-menu
+      @download="$emit('download')"
+      @import="$emit('import')"
+      @export="$emit('export')"
+      v-model="drawer"
+    ></app-menu>
   </div>
 </template>
 
 <script>
-import AppMenu from './Menu';
+import AppMenu from './Menu.vue';
 
 export default {
   data() {

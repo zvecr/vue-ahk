@@ -56,10 +56,10 @@ export default {
       const xml = Blockly.Xml.workspaceToDom(this.workspace);
       return Blockly.Xml.domToText(xml);
     },
-    doImport(xml_text) {
+    doImport(xmlText) {
       Blockly.mainWorkspace.clear();
-      if (xml_text) {
-        const xml = Blockly.Xml.textToDom(xml_text);
+      if (xmlText) {
+        const xml = Blockly.Xml.textToDom(xmlText);
         Blockly.Xml.domToWorkspace(xml, this.workspace);
       }
     },
@@ -111,8 +111,7 @@ export default {
   fill-opacity: 1;
 }
 .blocklyFlyout {
-  /* box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2), 0px 16px 24px 2px rgba(0,0,0,0.14), 0px 6px 30px 5px rgba(0,0,0,0.12); */
-  /* left: 2px; */
+  /* box-shadow */
 }
 /* .blocklyMainWorkspaceScrollbar,
 .blocklyScrollbarBackground{

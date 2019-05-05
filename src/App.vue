@@ -13,9 +13,9 @@
 <script>
 import { saveAs } from 'file-saver';
 
-import AppEditor from './components/AHK/Editor';
-import AppHeader from './components/Header';
-import AppFooter from './components/Footer';
+import AppEditor from './components/AHK/Editor.vue';
+import AppHeader from './components/Header.vue';
+import AppFooter from './components/Footer.vue';
 
 export default {
   name: 'App',
@@ -35,8 +35,8 @@ export default {
       const vm = this;
       const i = document.createElement('input');
       i.type = 'file';
-      i.onchange = function (e) {
-        const files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+      i.onchange = function (event) {
+        const files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
         const file = files[0];
 
         const fr = new FileReader();
