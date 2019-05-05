@@ -9,12 +9,13 @@
     "lint:md": "remark ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "core-js": "^3.0.1",
     "file-saver": "^2.0.1",
     "node-blockly": "1.0.36",
+    "typeface-roboto": "0.0.54",
     "vue": "^2.6.10",
-    "vuetify": "^1.5.14",
-    "@fortawesome/fontawesome-free": "^5.8.1"
+    "vuetify": "^1.5.14"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
