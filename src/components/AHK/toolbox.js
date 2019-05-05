@@ -33,7 +33,7 @@ const toolbox = `<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="d
   </block>
 </category>
 <sep></sep>
-<category name="Templates">
+<category name="Templates" colour="#95a5a6" categorystyle="ahk_template_category">
   <block type="ahk_hotkey">
     <value name="CONDITION">
       <block type="ahk_detect_mod">

@@ -28,10 +28,10 @@ export default {
       theme,
       sounds: false,
       horizontalLayout: false,
-      toolboxPosition: 'start',
+      toolboxPosition: 'end',
       media: './',
       grid: {
-        spacing: 20, length: 3, colour: '#ff000000', snap: true,
+        spacing: 20, length: 3, colour: '#ecf0f1', snap: true,
       },
       trashcan: false,
     });

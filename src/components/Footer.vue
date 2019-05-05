@@ -9,8 +9,8 @@
       tile
     >
     <!-- <v-card-actions class="grey darken-3 justify-center"> -->
-      <v-card-actions class="primary justify-center">
-        &copy; {{ new Date().getFullYear() }} - <strong>zvecr</strong>
+      <v-card-actions class="secondary justify-center">
+        &copy; {{ new Date().getFullYear() }}&nbsp;-&nbsp;<strong>zvecr.com</strong>
       </v-card-actions>
     </v-card>
   </v-footer>

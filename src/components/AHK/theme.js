@@ -2,7 +2,7 @@ import Blockly from 'node-blockly/browser';
 
 const blockStyles = {
   rule_type: {
-    colourPrimary: '#1abc9c',
+    colourPrimary: '#007F7F',
   },
   detect_type: {
     colourPrimary: '#3498db',
@@ -18,6 +18,9 @@ const categoryStyles = {
   },
   ahk_action_category: {
     colour: '#e67e22',
+  },
+  ahk_template_category: {
+    colour: '#95a5a6',
   },
 };
 

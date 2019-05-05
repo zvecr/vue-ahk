@@ -74,7 +74,7 @@
 
         <v-list-tile-content>
           <v-list-tile-title>zvecr.com</v-list-tile-title>
-          <v-list-tile-sub-title>Check out my other stuff</v-list-tile-sub-title>
+          <v-list-tile-sub-title>Check out my other creations</v-list-tile-sub-title>
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
