@@ -7,7 +7,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon class="hidden-md-and-down">
+      <v-btn icon class="hidden-sm-and-down">
         <v-icon @click="$emit('download')">fa-download</v-icon>
       </v-btn>
     </v-toolbar>
