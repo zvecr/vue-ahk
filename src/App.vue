@@ -3,6 +3,7 @@
     <app-header @download="genAHK" @import="doImport" @export="doExport"/>
 
     <v-content>
+      <app-quick-help/>
       <app-editor v-model="editorState" ref="editor"/>
     </v-content>
 
@@ -16,6 +17,7 @@ import { saveAs } from 'file-saver';
 import AppEditor from './components/AHK/Editor.vue';
 import AppHeader from './components/Header.vue';
 import AppFooter from './components/Footer.vue';
+import AppQuickHelp from './components/QuickHelp.vue';
 
 export default {
   name: 'App',
@@ -23,6 +25,7 @@ export default {
     AppEditor,
     AppHeader,
     AppFooter,
+    AppQuickHelp,
   },
   data() {
     return {
