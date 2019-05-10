@@ -9,7 +9,7 @@
     "lint:md": "remark ."
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "core-js": "^3.0.1",
     "file-saver": "^2.0.1",
     "node-blockly": "1.0.36",
