@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <app-header @download="genAHK" @import="doImport" @export="doExport"/>
+    <app-header @download="genAHK"/>
+    <app-menu @download="genAHK" @import="doImport" @export="doExport"/>
 
     <v-content>
       <app-quick-help/>
@@ -16,6 +17,7 @@ import { saveAs } from 'file-saver';
 
 import AppEditor from './components/AHK/Editor.vue';
 import AppHeader from './components/Header.vue';
+import AppMenu from './components/Menu.vue';
 import AppFooter from './components/Footer.vue';
 import AppQuickHelp from './components/QuickHelp.vue';
 
@@ -24,6 +26,7 @@ export default {
   components: {
     AppEditor,
     AppHeader,
+    AppMenu,
     AppFooter,
     AppQuickHelp,
   },
@@ -39,7 +42,9 @@ export default {
       const i = document.createElement('input');
       i.type = 'file';
       i.onchange = function (event) {
-        const files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+        const files = event.dataTransfer
+          ? event.dataTransfer.files
+          : event.target.files;
         const file = files[0];
 
         const fr = new FileReader();

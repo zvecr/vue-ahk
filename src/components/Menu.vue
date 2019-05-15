@@ -4,8 +4,7 @@
     app
     absolute
     temporary
-    :value="value"
-    @input="$emit('input', $event)"
+    v-model="menu"
   >
     <v-list>
       <v-list-tile @click="$emit('import')">
@@ -83,7 +82,16 @@
 
 <script>
 export default {
-  props: ['value'],
+  computed: {
+    menu: {
+      get() {
+        return this.$store.state.menu;
+      },
+      set(value) {
+        this.$store.commit('menu', value);
+      },
+    },
+  },
   methods: {
     home() {
       window.location.href = 'http://www.zvecr.com';

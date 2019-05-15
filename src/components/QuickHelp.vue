@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" :width="$vuetify.breakpoint.mdAndUp ? '50%' : 'auto'">
+  <v-dialog v-model="help" :width="$vuetify.breakpoint.mdAndUp ? '50%' : 'auto'">
     <v-card>
       <v-toolbar dark flat card color="secondary">
         <v-toolbar-title class="white--text">Quick Help</v-toolbar-title>
@@ -7,41 +7,42 @@
         <v-spacer></v-spacer>
 
         <v-btn icon>
-          <v-icon @click="dialog = false">fa-times</v-icon>
+          <v-icon @click="help = false">fa-times</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-layout
-        pa-2
-        wrap
-        :row="$vuetify.breakpoint.mdAndUp"
-        :column="$vuetify.breakpoint.smAndDown"
-      >
-        <v-flex xs8>
-          <p>
+
+      <v-layout pa-3>
+        <v-img src="screencast.gif" ontain class="elevation-5"/>
+      </v-layout>
+
+      <v-card-text>
+        <ol pt-3>
+          <li>
             Add some blocks to the workspace. Start with dragging some
             <strong>Rules</strong>, then add some
             <strong>Actions</strong>.
-          </p>
-        </v-flex>
+          </li>
 
-        <v-flex xs8>
-          <p>Click the download icon to generate your ahk script.</p>
-        </v-flex>
+          <li>Click the download icon to generate your ahk script.</li>
 
-        <v-flex xs8>
-          <p>See the template section for some initial ideas.</p>
-        </v-flex>
-      </v-layout>
+          <li>See the template section for some initial ideas.</li>
+        </ol>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      dialog: false,
-    };
+  computed: {
+    help: {
+      get() {
+        return this.$store.state.help;
+      },
+      set(value) {
+        this.$store.commit('help', value);
+      },
+    },
   },
 };
 </script>
