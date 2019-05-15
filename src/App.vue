@@ -30,10 +30,15 @@ export default {
     AppFooter,
     AppQuickHelp,
   },
-  data() {
-    return {
-      editorState: '',
-    };
+  computed: {
+    editorState: {
+      get() {
+        return this.$store.state.editor;
+      },
+      set(value) {
+        this.$store.commit('editor', value);
+      },
+    },
   },
   methods: {
     doImport() {
@@ -41,6 +46,7 @@ export default {
       const vm = this;
       const i = document.createElement('input');
       i.type = 'file';
+      // eslint-disable-next-line func-names
       i.onchange = function (event) {
         const files = event.dataTransfer
           ? event.dataTransfer.files

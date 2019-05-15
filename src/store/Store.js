@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     menu: false,
     help: false,
+    editor: '',
   },
   mutations: {
     menu(state, val) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     },
     help(state, val) {
       state.help = val;
+    },
+    editor(state, val) {
+      state.editor = val;
     },
   },
 });
