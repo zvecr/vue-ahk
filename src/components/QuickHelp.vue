@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="help" :width="$vuetify.breakpoint.mdAndUp ? '50%' : 'auto'">
+  <v-dialog v-model="help" :width="$vuetify.breakpoint.lgAndUp ? '50%' : 'auto'">
     <v-card>
       <v-toolbar dark flat card color="secondary">
         <v-toolbar-title class="white--text">Quick Help</v-toolbar-title>
