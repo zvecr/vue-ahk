@@ -1,90 +1,51 @@
 <template>
-  <div class="blocklyDivParent">
-    <div class="blocklyDiv"></div>
-  </div>
+  <app-blockly :config="config" lang="AHK" ref="blockly"/>
 </template>
 
 <script>
-import Blockly from 'node-blockly/browser';
-import generator from './generator';
-import blocks from './blocks';
+import AppBlockly from '../Blockly.vue';
 import theme from './theme';
 import toolbox from './toolbox';
 
+// Bind AHK support
+import './generator';
+import './blocks';
+
 export default {
-  props: {
-    value: { type: String },
+  components: {
+    AppBlockly,
   },
-  data() {
-    return {
-      worksapce: null,
-    };
-  },
-  mounted() {
-    const child = this.$el.querySelector('.blocklyDiv');
-
-    this.workspace = Blockly.inject(child, {
-      toolbox,
-      theme,
-      sounds: false,
-      horizontalLayout: false,
-      toolboxPosition: 'end',
-      media: './',
-      grid: {
-        spacing: 20, length: 3, colour: '#ecf0f1', snap: true,
-      },
-      trashcan: false,
-    });
-
-    this.doImport(this.value);
-
-    this.workspace.addChangeListener((event) => {
-      if (event.type === Blockly.Events.UI) {
-        return;
-      }
-      this.$emit('input', this.doExport());
-    });
-
-    window.addEventListener(
-      'resize',
-      () => Blockly.svgResize(this.workspace),
-      false,
-    );
+  computed: {
+    config() {
+      return {
+        toolbox,
+        theme,
+        sounds: false,
+        horizontalLayout: false,
+        toolboxPosition: 'end',
+        media: './',
+        grid: {
+          spacing: 20, length: 3, colour: '#ecf0f1', snap: true,
+        },
+        trashcan: false,
+      };
+    },
   },
   methods: {
-    doExport() {
-      const xml = Blockly.Xml.workspaceToDom(this.workspace);
-      return Blockly.Xml.domToText(xml);
+    export() {
+      return this.$refs.blockly.export();
     },
-    doImport(xmlText) {
-      Blockly.mainWorkspace.clear();
-      if (xmlText) {
-        const xml = Blockly.Xml.textToDom(xmlText);
-        Blockly.Xml.domToWorkspace(xml, this.workspace);
-      }
+    import(xmlText) {
+      return this.$refs.blockly.import(xmlText);
     },
-    doGen() {
-      return generator.workspaceToCode(this.workspace);
+    generate() {
+      return this.$refs.blockly.generate();
     },
   },
 };
 </script>
 
 <style>
-.blocklyDivParent {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.blocklyDiv {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 /* TODO: tidy up this style investigation */
 .blocklySvg {
 }

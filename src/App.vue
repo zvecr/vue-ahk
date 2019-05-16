@@ -62,7 +62,7 @@ export default {
 
           vm.editorState = fr.result;
           // TODO: find a way to propagate change without infinite loop
-          vm.$refs.editor.doImport(fr.result);
+          vm.$refs.editor.import(fr.result);
         };
 
         fr.readAsText(file);
@@ -76,7 +76,7 @@ export default {
       saveAs(blob, 'script.xml');
     },
     genAHK() {
-      const blob = new Blob([this.$refs.editor.doGen()], {
+      const blob = new Blob([this.$refs.editor.generate()], {
         type: 'text/plain;charset=utf-8',
       });
       saveAs(blob, 'script.ahk');
