@@ -7,7 +7,7 @@
     v-model="menu"
   >
     <v-list>
-      <v-list-tile @click="$emit('import')">
+      <v-list-tile @click="$bus.$emit('import')">
         <v-list-tile-action>
           <v-icon>fa-file-import</v-icon>
         </v-list-tile-action>
@@ -17,7 +17,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile @click="$emit('export')">
+      <v-list-tile @click="$bus.$emit('export')">
         <v-list-tile-action>
           <v-icon>fa-file-export</v-icon>
         </v-list-tile-action>
@@ -29,7 +29,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile @click="$emit('download')">
+      <v-list-tile @click="$bus.$emit('download')">
         <v-list-tile-action>
           <v-icon>fa-download</v-icon>
         </v-list-tile-action>
@@ -39,7 +39,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile disabled @click="$emit('compile')">
+      <v-list-tile disabled @click="$bus.$emit('compile')">
         <v-list-tile-action>
           <v-icon>fa-cogs</v-icon>
         </v-list-tile-action>

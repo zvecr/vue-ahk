@@ -11,7 +11,7 @@
         <v-icon @click="help = true">fas fa-question</v-icon>
       </v-btn>
       <v-btn icon class="hidden-sm-and-down">
-        <v-icon @click="$emit('download')">fa-download</v-icon>
+        <v-icon @click="$bus.$emit('download')">fa-download</v-icon>
       </v-btn>
     </v-toolbar>
   </div>
