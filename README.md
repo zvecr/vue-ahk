@@ -9,6 +9,8 @@ Drag-and-Drop Blockly based editor for creating simple AutoHotkey scripts.
 
 ![screencast](./public/screencast.gif)
 
+For the Compile service, see the [zvecr/rest-ahk](https://github.com/zvecr/rest-ahk) project.
+
 ## Development
 For convenience a `.nvmrc` file has been provided at the root of the project directory.
 
