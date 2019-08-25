@@ -1,8 +1,7 @@
 import Vue from 'vue';
-import './plugins/vuetify';
-import store from './store/Store';
 import App from './App.vue';
-import 'typeface-roboto/index.css';
+import vuetify from './plugins/vuetify';
+import store from './store/Store';
 
 Vue.config.productionTip = false;
 
@@ -13,7 +12,10 @@ Vue.use({
 
     Vue.mixin({
       beforeDestroy() {
-        this.$bus.$destroy();
+        // only destroy on root instances
+        if (!this.$parent) {
+          this.$bus.$destroy();
+        }
       },
     });
   },
@@ -21,5 +23,6 @@ Vue.use({
 
 new Vue({
   store,
-  render: h => h(App),
+  vuetify,
+  render: (h) => h(App),
 }).$mount('#app');
