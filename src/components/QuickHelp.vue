@@ -1,15 +1,15 @@
 <template>
   <v-dialog v-model="help" :width="$vuetify.breakpoint.lgAndUp ? '50%' : 'auto'">
     <v-card>
-      <v-toolbar dark flat card color="secondary">
-        <v-toolbar-title class="white--text">Quick Help</v-toolbar-title>
+      <v-app-bar dark dense color="secondary">
+        <v-toolbar-title>Quick Help</v-toolbar-title>
 
         <v-spacer></v-spacer>
 
         <v-btn icon>
           <v-icon @click="help = false">fa-times</v-icon>
         </v-btn>
-      </v-toolbar>
+      </v-app-bar>
 
       <v-layout pa-3>
         <v-img src="screencast.gif" ontain class="elevation-5"/>
