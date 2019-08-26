@@ -1,82 +1,72 @@
 <template>
-  <v-navigation-drawer
-    style="display:flex;flex-direction:column;"
-    app
-    absolute
-    temporary
-    v-model="menu"
-  >
-    <v-list>
-      <v-list-tile @click="$bus.$emit('import')">
-        <v-list-tile-action>
-          <v-icon>fa-file-import</v-icon>
-        </v-list-tile-action>
+  <v-navigation-drawer app temporary v-model="menu" width="300">
+    <v-layout column fill-height>
+      <v-list>
+        <v-list-item link @click="$bus.$emit('import')">
+          <v-list-item-icon>
+            <v-icon>fa-file-import</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Import</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Import</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        <v-list-item link @click="$bus.$emit('export')">
+          <v-list-item-icon>
+            <v-icon>fa-file-export</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Export</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-      <v-list-tile @click="$bus.$emit('export')">
-        <v-list-tile-action>
-          <v-icon>fa-file-export</v-icon>
-        </v-list-tile-action>
+        <v-divider></v-divider>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Export</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        <v-list-item link @click="$bus.$emit('download')">
+          <v-list-item-icon>
+            <v-icon>fa-download</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Download script</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
+        <v-list-item link disabled @click="$bus.$emit('compile')">
+          <v-list-item-icon>
+            <v-icon>fa-cogs</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Compile to exe</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list-item link href="https://github.com/zvecr/vue-ahk/wiki">
+          <v-list-item-icon>
+            <v-icon>fa-question-circle</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>Online Help</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-spacer></v-spacer>
       <v-divider></v-divider>
 
-      <v-list-tile @click="$bus.$emit('download')">
-        <v-list-tile-action>
-          <v-icon>fa-download</v-icon>
-        </v-list-tile-action>
-
-        <v-list-tile-content>
-          <v-list-tile-title>Download script</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-
-      <v-list-tile disabled @click="$bus.$emit('compile')">
-        <v-list-tile-action>
-          <v-icon>fa-cogs</v-icon>
-        </v-list-tile-action>
-
-        <v-list-tile-content>
-          <v-list-tile-title>Compile to exe</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-
-      <v-divider></v-divider>
-
-      <v-list-tile @click="help">
-        <v-list-tile-action>
-          <v-icon>fa-question-circle</v-icon>
-        </v-list-tile-action>
-
-        <v-list-tile-content>
-          <v-list-tile-title>Online Help</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </v-list>
-
-    <v-spacer></v-spacer>
-
-    <v-divider></v-divider>
-    <v-list two-line>
-      <v-list-tile @click="home">
-        <v-list-tile-avatar tile>
-          <img src="icon_vector_min.svg">
-        </v-list-tile-avatar>
-
-        <v-list-tile-content>
-          <v-list-tile-title>zvecr.com</v-list-tile-title>
-          <v-list-tile-sub-title>Check out my other creations</v-list-tile-sub-title>
-        </v-list-tile-content>
-      </v-list-tile>
-    </v-list>
+      <v-list>
+        <v-list-item two-line link href="http://www.zvecr.com">
+          <v-list-item-avatar tile>
+            <img src="icon_vector_min.svg" />
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>zvecr.com</v-list-item-title>
+            <v-list-item-subtitle>Check out my other creations</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-layout>
   </v-navigation-drawer>
 </template>
 
@@ -90,14 +80,6 @@ export default {
       set(value) {
         this.$store.commit('menu', value);
       },
-    },
-  },
-  methods: {
-    home() {
-      window.location.href = 'http://www.zvecr.com';
-    },
-    help() {
-      window.location.href = 'https://github.com/zvecr/vue-ahk/wiki';
     },
   },
 };

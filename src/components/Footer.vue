@@ -1,16 +1,9 @@
 <template>
-  <v-footer
-    dark
-    height="auto"
-  >
-    <v-card
-      class="flex"
-      flat
-      tile
-    >
-    <!-- <v-card-actions class="grey darken-3 justify-center"> -->
+  <v-footer dark padless>
+    <v-card flat tile width="100%" class="secondary lighten-1 white--text text-center">
       <v-card-actions class="secondary justify-center">
-        &copy; {{ new Date().getFullYear() }}&nbsp;-&nbsp;<strong>zvecr.com</strong>
+        &copy; {{ new Date().getFullYear() }}&nbsp;-&nbsp;
+        <strong>zvecr.com</strong>
       </v-card-actions>
     </v-card>
   </v-footer>
@@ -18,10 +11,11 @@
 
 <script>
 export default {
-
 };
 </script>
 
 <style>
-
+footer {
+  user-select: none;
+}
 </style>
