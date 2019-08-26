@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <v-toolbar dark flat color="primary">
-      <v-toolbar-side-icon @click="menu = true"></v-toolbar-side-icon>
+<div>
+  <v-app-bar dark color="primary">
+    <v-app-bar-nav-icon @click="menu = true"></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="white--text">AutoHotkey Editor</v-toolbar-title>
+      <v-toolbar-title>AutoHotkey Editor</v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <div class="flex-grow-1"></div>
 
       <v-btn icon>
         <v-icon @click="help = true">fas fa-question</v-icon>
@@ -13,8 +13,8 @@
       <v-btn icon class="hidden-sm-and-down">
         <v-icon @click="$bus.$emit('download')">fa-download</v-icon>
       </v-btn>
-    </v-toolbar>
-  </div>
+  </v-app-bar>
+</div>
 </template>
 
 <script>
