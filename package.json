@@ -12,7 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.10.2",
     "core-js": "^3.2.1",
     "file-saver": "^2.0.2",
-    "node-blockly": "1.0.36",
+    "node-blockly": "1.2.3",
     "typeface-roboto": "0.0.75",
     "vue": "^2.6.10",
     "vuetify": "^2.0.10",
